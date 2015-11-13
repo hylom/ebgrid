@@ -46,8 +46,7 @@ def extract_thumbnail(pathname):
     Extract thumbnail image from given eBook file.
     """
     image_exts = (".jpg", ".jpeg", ".png", ".bmp", ".gif")
-    fp = open(pathname, 'r')
-    zipf = zipfile.ZipFile(fp)
+    zipf = zipfile.ZipFile(pathname)
 
     filenames = sorted(zipf.namelist())
     for f in filenames:
@@ -55,11 +54,9 @@ def extract_thumbnail(pathname):
         if ext in image_exts:
             thumb = _ext_thumb(zipf, f, ext)
             zipf.close()
-            fp.close()
             return thumb
 
     zipf.close()
-    fp.close()
     raise ThumbnailError('NotFound')
     
 def _ext_thumb(zipf, name, ext):
