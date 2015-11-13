@@ -9,5 +9,5 @@ python:
   - "nightly"
 install: true
 script:
-  - PYTHONPATH=.:$PYTHONPATH python test/testcase.py
+  - PYTHONPATH=.:$PYTHONPATH python test/testcases.py
 
