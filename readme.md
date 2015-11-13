@@ -1,0 +1,3 @@
+# ebgrid - eBook thumbnail generator
+
+
